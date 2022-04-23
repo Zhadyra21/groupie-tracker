@@ -1,0 +1,47 @@
+{{define "artist"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/artist.css">
+    <link rel="icon" href="https://img.icons8.com/office/16/000000/info.png">
+    <title>Artist info</title>
+</head>
+<body>
+    <h2><a href="https://www.wikipedia.org/wiki/{{.Name}}">{{.Name}}</a></h2>
+   <div class="parent">
+        <div class="info">
+            
+            <p><img src="{{.Image}}" alt=""></p>
+    
+            <span>Members:<br></span>
+            {{range .Members}}
+            <p>{{.}}</p>
+            {{end}} <br>
+            <span>Creation Date:</span>
+          <p>{{.CreationDate}}</p><br>
+            <span>First Album:</span>
+            <p>{{.FirstAlbum}}</p><br>
+        </div>
+
+        <div class="border"></div>    
+        
+        <div class="concerts">
+                <span>Dates and Locations:</span>
+                {{ range $key, $value := .DatesLocations}}
+                <div class="cities">{{ $key }}</div>
+                {{ range $value}}
+                <div class="dates">
+                  <p>{{ . }}</p></div>
+                {{end}}
+                {{end}}
+        </div>
+   </div>
+   </body>
+   <footer>
+    <a href="/">GO HOME</a>
+   </footer>
+</html>
+{{end}}

@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,500&display=swap');
+
+@keyframes show{
+    0% {
+    opacity:0;
+    }
+    100% {
+    opacity:1;
+    }
+}
+
+body {
+    background-image: conic-gradient(#c5d5cb, #9fa8a3, #e3e0cf);
+    font-family: 'EB+Garamond', sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    text-align: center;
+}
+h1 {
+    text-align: center;
+    font-family: 'EB+Garamond', sans-serif;
+    font-size:6em;
+    font-weight: 100;
+    margin: 1em auto;
+    color: #4d0a36;
+}
+
+.search_bar {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+}
+.search_bar input {
+  width: 360px;
+}
+#inp {
+    border: 1px solid rgb(141, 221, 245);
+    border-radius: 3px;
+    background-color: white;
+    height: 40px;
+}
+
+#search_btn {
+    height: 44px;
+    color: rgb(141, 221, 245);
+    border: 1px solid rgb(141, 221, 245);
+    border-radius: 3px;
+    background-color: white;
+}
+#search_btn:hover {
+    background-color: #e3e0cf;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    background-color: #eee;
+    color: #4d0a36;
+    font-style: italic;
+    cursor: pointer;
+    padding: 18px;
+    width: 800px;
+    max-width: 800px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 17px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+    background-color: #ccc;
+}
+  
+/* Style the collapsible content. Note: hidden by default */
+.content {
+    display: none;
+    overflow: hidden;
+    background-color: #9fa8a3;
+    max-width: 800px;
+    margin: auto;
+}
+
+#filter {
+    display: flex;
+    flex-direction: column;
+    background-color: #9fa8a3;
+    border-radius: 5px;
+    padding: 2em;
+    max-width: 800px;
+    padding: auto;
+    margin: auto;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1em;
+}
+
+p {
+  font-style: italic;
+}
+
+.number_inp {
+    height: 36px;
+    width: 160px;
+}
+#location_inp {
+    height: 36px;
+    width: 246px;
+}
+#filter_btn {
+  border: 1px solid rgb(141, 221, 245);
+  color: #4d0a36;
+    height: 42px;
+    width: 80px;
+}
+#filter_btn:hover {
+    background-color: #e3e0cf;
+}
+
+.artist {
+    border: 5px solid #ffffff;
+    border-radius: 10px;
+}
+.artist:hover {
+    border: 5px solid #4d0a36
+}
+.container {
+    margin: 0 auto;
+    text-align: center;
+    margin: 10px;
+    transition: 1s;
+    opacity:0; 
+    animation: show 1s 1;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+}
+
+.bands {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.show_all {
+    margin: 25px;
+    padding: 10px;
+}
+
+#show_all_text {
+    text-decoration: none;
+    color: #4d0a36;
+}
+
+#show_all_text:hover {
+    color: #173e43;
+}
+
+.foot {
+    text-decoration: none; 
+}
+
+@media screen and (max-width: 630px) {
+    h1 {
+        text-align: center;
+        font-family: 'EB+Garamond', sans-serif;
+        font-size:3em;
+        font-weight: 100;
+        margin: 10% auto;
+        color: #4d0a36
+    }
+    .main_page {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-content: center;
+    }
+    .bands {
+        height: 100%;
+    }
+    #inp {
+        width: 120px;
+    }
+    #filter {
+        padding: 1em;
+    }
+    .field {
+        display: block;
+    }
+    #location_inp {
+        height: 36px;
+        /* width: auto; */
+        margin-bottom: 10px;
+    }
+}

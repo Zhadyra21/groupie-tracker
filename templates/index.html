@@ -1,0 +1,113 @@
+{{define "index"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="icon" href="https://img.icons8.com/emoji/48/000000/guitar-emoji.png">
+    <title>Groupie Tracker</title>
+</head>
+<body>
+    <div class="main_page">
+
+        <h1>TRACK YOUR FAVORITE BAND</h1>
+
+        <form action="/filter/" method="GET">
+
+            <div class="search_bar">        
+                <input list="search_bar_list" id="inp" name="search_input" placeholder="Type to search ..." required>
+                <button id="search_btn">
+                    <img src="https://img.icons8.com/external-kiranshastry-gradient-kiranshastry/32/000000/external-search-logistic-delivery-kiranshastry-gradient-kiranshastry.png"/>
+                </button>
+                <datalist id="search_bar_list"> 
+                    {{range .}}
+                        <option value="{{.Name}} -> Artist/Band"></option>
+                            {{range .Members}}
+                                <option value="{{.}} -> Member"></option>
+                            {{end}}
+                        <option value="{{.CreationDate}} -> Creation Date"></option>
+                        <option value="{{.FirstAlbum}} -> First Album"></option>
+        
+                        {{range $key, $value:= .DatesLocations}}
+                            <option value="{{$key}} -> Location"></option>
+                            {{range $value}}
+                                <option value="{{.}} -> Concert Date"></option>
+                            {{end}}
+                        {{end}}
+                    {{end}}
+                </datalist>
+            </div>
+        </form>
+
+        <button type="button" class="collapsible">Filter by concert dates, locations, etc. </button>
+        <div class="content">
+            <form id="filter" action="/filter/" method="GET">
+                <div class="field">
+                    <p>Creation Date</p>
+                    <div>
+                        <input class="number_inp" type="number" name="creation_date[from]"  min="1600" max="2022" placeholder="from">
+                        <input class="number_inp" type="number" name="creation_date[to]" min="1600" max="2022" placeholder="to">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <p>First album date</p>
+                    <div>
+                        <input class="number_inp" type="number" name="first_album_date[from]" min="1600" max="2022" placeholder="from" id="">
+                        <input class="number_inp" type="number" name="first_album_date[to]" min="1600" max="2022" placeholder="to" id="">
+                    </div>
+                </div>
+        
+                <div class="field">
+                    <p>Number of members</p>
+                    <div>
+                        <input class="number_inp" type="number" name="num_of_members[from]" min="1" max="100" placeholder="from" id="">
+                        <input class="number_inp" type="number" name="num_of_members[to]" min="1" max="100" placeholder="to" id="">
+                    </div>   
+                </div>
+        
+                <div class="field">
+                    <p>Concert location</p>
+                    <div>
+                        <input id="location_inp" name="location" placeholder="e.g., Washington, USA" id="">
+                        <button id="filter_btn">Ready!</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            
+            for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                content.style.display = "none";
+                } else {
+                content.style.display = "block";
+                }
+            });
+            }
+        </script>
+
+        <p>{{if not .}} NO RESULT. PLEASE, TRY AGAIN {{end}}</p>
+
+        <div class="bands">
+            {{range .}}
+                <div class="container">
+                    <a href="/artists/{{.Id}}"><img class="artist" src="{{.Image}}" alt=""></a>
+                </div>
+            {{end}}
+        </div>
+        <div class="show_all">
+            <a id="show_all_text" href="/">SHOW ALL BANDS</a>
+        </div>
+    </div>
+</body>
+<footer>designed by <a class="foot" href="https://git.01.alem.school/Zhadyra21">@Zhadyra21</a></footer>
+</html>
+{{end}}
