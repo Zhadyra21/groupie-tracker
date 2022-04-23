@@ -1,9 +1,9 @@
 # groupie-tracker
 
 ### About
-• Please visit [here](https://github.com/01-edu/public/tree/master/subjects/groupie-tracker) to read about the project.</br>
+#### Please visit [here](https://github.com/01-edu/public/tree/master/subjects/groupie-tracker) to read about the project.</br>
 
-• The project includes following optional tasks for groupie-tracker:
+The project includes following optional tasks for groupie-tracker:
 - search-bar
 - filter
 - visualization.
