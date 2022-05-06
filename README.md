@@ -6,13 +6,14 @@
 The project includes following optional tasks for groupie-tracker:
 - search-bar
 - filter
-- visualization.
+- visualization
+- geolocalization
 
 #### This project will help you learn about :
 
-- Manipulation and storage of data.
-- JSON files and format.
-- HTML.
-- Event creation and display.
+- Manipulation and storage of data
+- JSON files and format
+- HTML
+- Event creation and display
 - Client-server.
 
