@@ -61,6 +61,11 @@ h2 {
 p {
   font-style: italic;
 }
+.map {
+    margin: auto;
+    width: 85%;
+    height: 500px;
+}
 footer {
     padding: 10px;
     margin-bottom: 30px;
