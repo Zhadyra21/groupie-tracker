@@ -10,12 +10,12 @@ function init() {
 
     for (let coord of coords) {
 
-        let newCoord = coord.innerHTML.replace(/-/g, "_")
+        let newCoord = coord.innerHTML.replace(/-/g, ", ")
         newCoord = newCoord.replace(/_/g, " ")
         console.log(newCoord)
 
         let myGeocoder = ymaps.geocode(newCoord, {
-        results: 1, prefLang: "ru"});
+        provider: "yandex#map", kind:"locality", results: 1, prefLang: "ru"});
 
         myGeocoder.then(function(res) {
             myMap.geoObjects.add(res.geoObjects);
